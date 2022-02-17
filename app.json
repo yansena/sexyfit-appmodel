@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "sexyfit",
+    "slug": "sexyfit",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "sexyfit"
+}

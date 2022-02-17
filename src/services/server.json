@@ -1,0 +1,26 @@
+{
+    "users": [
+        {
+            "id": "0",
+            "name": "Teste",
+            "email": "teste@email.com",
+            "password": "123"
+        },
+        {
+            "id": "1",
+            "name": "Ster",
+            "email": "ster@email.com",
+            "password": "132"
+        }
+    ],
+    "user_data" : [
+        {
+            "id": "0",
+            "weight": 74, 
+            "height": 1.69,
+            "gender": "male",
+            "start_level": "beginner",
+            "objective": "gain_muscle"
+        }
+    ]
+}
