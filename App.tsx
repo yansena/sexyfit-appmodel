@@ -21,6 +21,8 @@ import theme from './src/styles/theme';
 import {Login} from "./src/pages/Login";
 import {SplashScreen}  from './src/pages/Splash';
 import { Routes } from './src/routes';
+import { AppProvider } from './src/hooks';
+
 
 export default function App() {
   const [ fontsLoaded] = useFonts({
@@ -39,7 +41,9 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Routes/>
+      <AppProvider>
+        <Routes/>
+      </AppProvider>
     </ThemeProvider>
   );
 }

@@ -1,12 +1,12 @@
 import React from "react";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { SplashScreen } from "../pages/Splash";
-import { Login } from "../pages/Login";
+
+import { Home } from "../pages/Home";
+
 
 export type RootStackParamsList = {
-    Splash: undefined;
-    Login: undefined;
+    Home: undefined;
 }
 
 const { Navigator, Screen } = createNativeStackNavigator<RootStackParamsList>();
@@ -15,12 +15,8 @@ export function AppStackRoutes(){
     return(
         <Navigator screenOptions={{headerShown: false}} >
             <Screen 
-                name="Splash"
-                component={SplashScreen}
-            />
-            <Screen 
-                name="Login"
-                component={Login}
+                name="Home"
+                component={Home}
             />
         </Navigator>
     )

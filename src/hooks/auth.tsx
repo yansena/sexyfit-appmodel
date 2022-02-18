@@ -4,10 +4,10 @@ import React, {
     useContext,
     ReactNode
 } from "react";
+import { useNavigation } from "@react-navigation/native";
 
 import { Alert } from "react-native";
 import { api } from "../services/api";
-
 interface User {
     id: string;
     name: string;
@@ -34,15 +34,20 @@ const AuthContext = createContext<AuthContextData>({} as AuthContextData );
 function AuthProvider({ children } : AuthProviderProps){
     const [ userData, setUserData ] = useState<User>({} as User);
 
+
     async function signIn({email, password} : SignCredentials) {
         try {
             const response = await api.get(`/users`);
-
-            console.log("INFOS" + email + password) ;
-            console.log(response.data);
-
-            return Alert.alert("fuck")
             
+            const findUser : User = response.data.find((value) => value.email == email)
+            
+            if(findUser && findUser.password === password){
+                // console.log(findUser)
+                setUserData(findUser)
+            } else {
+                Alert.alert("Login ou senha incorretos")
+            }
+
         } catch (error) {
             console.log(error)
         }
