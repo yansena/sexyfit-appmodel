@@ -9,6 +9,7 @@ import {
 } from 'react-native'
 import { useTheme } from 'styled-components';
 import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 import * as Yup from 'yup';
 
@@ -33,13 +34,15 @@ import { PasswordInput } from '../../components/PasswordInput';
 import { Button } from '../../components/Button';
 import { useAuth } from '../../hooks/auth';
 
+import { RootStackParamsList } from '../../routes/auth.routes';
+
 export function Login() {
 
     const [ email, setEmail ] = useState('') 
     const [ password, setPassword ] = useState('');
 
     const { colors } = useTheme()
-    const navigation = useNavigation()
+    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamsList>>();
 
     const { signIn } = useAuth();
 
@@ -74,13 +77,12 @@ export function Login() {
         }
     }
 
-    // function handleNewAccount(){
-    //     navigation.navigate('')
-    // }
+    function handleNewAccount(){
+        navigation.navigate('SignUpFirstStep')
+    }
 
     return (
-        <KeyboardAvoidingView behavior='position' enabled>
-            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        
                 <Container>
                     <StatusBar 
                         backgroundColor='transparent'
@@ -88,24 +90,29 @@ export function Login() {
                         translucent
                     />
                     <Content>
-                        <Logo source={Sexfit_logo} resizeMode='contain' resizeMethod='resize'/>
+                        <Logo source={Sexfit_logo} />
 
-                        <Form>
-                            <Input 
-                                placeholder='E-mail'
-                                iconName='mail'
-                                onChangeText={setEmail}
-                                value={email}
-                                autoCapitalize='none'
-                                autoCorrect={false}
-                            />
-                            <PasswordInput 
-                                placeholder='Senha'
-                                iconName='lock'
-                                onChangeText={setPassword}
-                                value={password}
-                            />
-                        </Form>
+                        <KeyboardAvoidingView behavior='position' enabled style={{width: '100%'}}>
+                            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+
+                                <Form>
+                                    <Input 
+                                        placeholder='E-mail'
+                                        iconName='mail'
+                                        onChangeText={setEmail}
+                                        value={email}
+                                        autoCapitalize='none'
+                                        autoCorrect={false}
+                                        />
+                                    <PasswordInput 
+                                        placeholder='Senha'
+                                        iconName='lock'
+                                        onChangeText={setPassword}
+                                        value={password}
+                                        />
+                                </Form>
+                            </TouchableWithoutFeedback>
+                        </KeyboardAvoidingView>                    
 
                         <Footer>
                             <Button 
@@ -119,14 +126,13 @@ export function Login() {
                         </Footer>
 
                         <BottomFooter>
-                            <SignUp activeOpacity={0.7} onPress={() => {}}>
+                            <SignUp activeOpacity={0.7} onPress={handleNewAccount}>
                                 <Icon name="log-in" size={23} color={colors.main}/>
                                 <SignUpTitle> Criar Conta </SignUpTitle>
                             </SignUp>
                         </BottomFooter>
                     </Content>
                 </Container>
-            </TouchableWithoutFeedback>
-        </KeyboardAvoidingView>
+            
     );
 }

@@ -11,7 +11,7 @@ import {
 
 interface Props extends TextInputProps{
     iconName: React.ComponentProps<typeof Feather>['name'];
-    value?: string; 
+    value?: string;
 
 }
 
@@ -50,7 +50,7 @@ export function Input({
                 onFocus={handleInputFocus}
                 onBlur={handleInputBlur}
                 isFocused={isFocused}
-                
+                placeholderTextColor={colors.text_details}
             />
         </Container>
     );

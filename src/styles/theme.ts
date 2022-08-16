@@ -3,7 +3,7 @@ export default{
         main: '#FF9000',
 
         background_primary: '#24272C',
-        background_secondary: '#383B43',
+        background_secondary: '#595D65',
 
         text: '#F4EDE8',
         text_details: '#878787',

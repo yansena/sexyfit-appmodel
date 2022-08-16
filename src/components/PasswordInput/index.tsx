@@ -51,7 +51,7 @@ export function PasswordInput({
                 onBlur={handleInputBlur}
                 isFocused={isFocused}
                 secureTextEntry={true}
-                
+                placeholderTextColor={colors.text_details}
             />
         </Container>
     );

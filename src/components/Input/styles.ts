@@ -18,6 +18,7 @@ export const IconContainer = styled.View`
     align-items: center;
 
     background-color: ${({ theme }) => theme.colors.background_secondary };
+
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 `;
@@ -31,10 +32,8 @@ export const InputText = styled(TextInput)<InputProps>`
     font-family: ${({ theme }) => theme.fonts.primary_400 };
     font-size: ${RFValue(15)}px;
 
-    /* margin: 0 20px; */
     padding: 0 23px;
 
-    /* border-radius: 5px; */
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 `;
